@@ -118,13 +118,11 @@ void main(void)
     while (count != 3)
     {
         if (count == 0 && result_hex[0] == '0')
-        {
             count++;
-        }
+    
         if(count==1 && result_hex[1]=='0' && result_hex[0] =='0' )
-        {
             count++;
-        }
+
        LCD_DATA(result_hex[count]);
        DELAY(6);
         count++;
