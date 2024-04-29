@@ -1,15 +1,4 @@
 #include"header\Error_handling.h"
-void errorDis(unsigned char Msg[])
-{   
-    unsigned char i = 0;
-    while (Msg[i]!=0)
-    {
-       P1=Msg[i];
-       i++;
-       DELAY(1);
-       
-    }
-}
 unsigned char divByZeroError(unsigned char oprand2,unsigned char opration)
 {
     if (opration =='/' && oprand2 == 0)

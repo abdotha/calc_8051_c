@@ -12,10 +12,11 @@ int hex_to_dec(unsigned char dig_1,unsigned char dig_2,unsigned char dig_3)
 
 void dec_to_hex(int dec,unsigned char *hex)
 {
-    unsigned char x;
-    for(x=0;x<=2;x++)
+    unsigned char x=0;
+    while(dec != 0 )
     {
         hex[x]=(dec%10)+'0';
-        dec=dec/10;
+        dec/=10;
+        x++;
     }
 }

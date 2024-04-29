@@ -107,11 +107,11 @@ char main(void)
     count=2;
     while (count != -1)
     {
-        if (count == 2 && result_hex[2] == '0')
+        if (count == 3 && result_hex[3] == '0')
         {
             count--;
         }
-        if(count==1 && result_hex[1]=='0' && result_hex[2] =='0' )
+        if(count==2 && result_hex[2]=='0' && result_hex[3] =='0' )
         {
             count--;
         }
