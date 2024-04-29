@@ -6,8 +6,10 @@
 #include"header\Arith_fun.h"
 
 
-char main(void)
+void main(void)
 {
+    while(1)
+    {
     unsigned char operand1_hex[3]={0,0,0};
     unsigned char operand2_hex[3]={0,0,0};
     unsigned char opration_sgin=0;
@@ -18,13 +20,15 @@ char main(void)
     initial();
     LCD_INIT();
 
-    for ( count = 0; count < 3; count++)
+    while (1)
+    {
+        for ( count = 0; count < 3; count++)
     {
     operand1_hex[count]=READ_KEY();
     if (operand1_hex[count]=='c')
     {
         LCD_CLEAR();
-        return 0;
+        break;
     }
     else
     {
@@ -37,7 +41,7 @@ char main(void)
     if (opration_sgin=='c')
     {
         LCD_CLEAR();
-        return 0;
+        break;
     }
     else
     {
@@ -51,7 +55,7 @@ char main(void)
     if (operand2_hex[count] == 'c')
     {
         LCD_CLEAR();
-        return 0;
+        break;
     }
     else
     {
@@ -66,7 +70,7 @@ char main(void)
         LCD_CLEAR();
        LCD_STRING("Error\0"); 
        READ_KEY();
-       return 0;
+       break;
     }
     else
     {
@@ -86,7 +90,7 @@ char main(void)
         LCD_CLEAR();
         LCD_STRING("INVALD\0");
         READ_KEY();
-        return 0;
+        break;
     }
     }
 
@@ -99,10 +103,16 @@ char main(void)
         LCD_CLEAR();
         LCD_STRING("INVALD\0");
         READ_KEY();
-        return 0;
+        break;
     }
 
     result_dec=ArithFunc(operand1_dec,opration_sgin,operand2_dec);
+
+    if (operand1_dec<operand2_dec && opration_sgin == '-')
+    {   
+        LCD_STRING("-\0");
+        result_dec = ~result_dec+1;
+    }
     dec_to_hex(result_dec,result_hex);
     count=0;
     while (count != 3)
@@ -121,5 +131,8 @@ char main(void)
     }
     
     READ_KEY();
-    return 0;
+    break;
+    }
+    
+    }
 }
