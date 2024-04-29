@@ -104,20 +104,20 @@ char main(void)
 
     result_dec=ArithFunc(operand1_dec,opration_sgin,operand2_dec);
     dec_to_hex(result_dec,result_hex);
-    count=2;
-    while (count != -1)
+    count=0;
+    while (count != 3)
     {
-        if (count == 3 && result_hex[3] == '0')
+        if (count == 0 && result_hex[0] == '0')
         {
-            count--;
+            count++;
         }
-        if(count==2 && result_hex[2]=='0' && result_hex[3] =='0' )
+        if(count==1 && result_hex[1]=='0' && result_hex[0] =='0' )
         {
-            count--;
+            count++;
         }
        LCD_DATA(result_hex[count]);
        DELAY(6);
-       count--;
+        count++;
     }
     
     READ_KEY();
